@@ -10,8 +10,11 @@ const getElmClassBtnSubtract = $(".btn__subtract");
 const getElmClassBtnEqual = $(".btn__equal");
 const getElmClassBtnSum = $(".btn__sum");
 const getElmClassBtnDot = $(".btn__dot");
-//
+//ham tat bat calculator
+// biến hiển thị nội dung người nhập lên màn hình :calcultor
 let calculation = "";
+// biến chứa lần lươt giá trị phần tử  mà người dùng nhập vào:term
+let term = "";
 let checkON = false;
 function OnOffCalculator() {
   getElmBtnOnOff.click(function () {
@@ -19,7 +22,7 @@ function OnOffCalculator() {
     resetValue();
   });
 }
-// ham reset cac gai tri
+// ham reset cac gia tri
 function resetValue() {
   getElmClassDisplayText1.text("");
   getElmClassDisplayText2.text("0");
@@ -42,7 +45,7 @@ function screenShow(This) {
   getElmClassDisplayText1.text(`${calculation}`);
 }
 // ham lay gia tri cua cac nut roi hien thi len man hinh
-let term = "";
+
 function getValueBtnShowScreen() { 
   $(".btn").click(function () {
     if(checkResult){
@@ -63,6 +66,7 @@ function getValueBtnShowScreen() {
     }
   });
 }
+// Hàm kiểm tra trong 1 phần tử đã có dấu chấm hay chưa .
 function checkLogicDot() {
   for (let i = 0; i < term.length; i++) {
     if (term[i] == ".") {
@@ -73,7 +77,7 @@ function checkLogicDot() {
   calculation += getElmClassBtnDot.text();
   getElmClassDisplayText1.text(`${calculation}`);
 }
-// hàm check logic*,/
+// hàm check logic các dấu + - * / trong phép tính
 let lastString;
 function checkLogic() {
   lastString = calculation[calculation.length - 1];
