@@ -124,7 +124,26 @@ function showResult() {
     }
   });
 }
+// hàm click vào các nút
+function  clickBtnChangeBgColor(){
+ $('.keyboard__item').mousedown(function(){
+$(this).css('backgroundColor','rgb(199, 198, 198)');
+ })
+ $('.keyboard__item').mouseup(function(){
+  $(this).css('backgroundColor','rgb(217, 220, 223)');
+   })
+   $('.keyboard__item').mouseover(function(){
+    $(this).css('backgroundColor','rgb(217, 220, 223)');
+     })
+   $('.keyboard__item').mouseout(function(){
+    $(this).css('backgroundColor','aliceblue');
+     })
+}
+  
+
+
 OnOffCalculator();
 clearCalculator();
 getValueBtnShowScreen();
 showResult();
+clickBtnChangeBgColor()
