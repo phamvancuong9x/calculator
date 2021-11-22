@@ -31,7 +31,7 @@ function resetValue() {
   getElmClassDisplayText1.text("");
   getElmClassDisplayText2.text("0");
   calculation = "";
-  convertCalculations='';
+  convertCalculations = "";
   term = "";
   checkResult = false;
   checkSqrt = true;
@@ -71,7 +71,6 @@ function screenShow2(This) {
   getElmClassDisplayText1.text(`${calculation}`);
 }
 // ham lay gia tri cua cac nut roi hien thi len man hinh
-
 function getValueBtnShowScreen() {
   $(".btn").click(function () {
     if (checkResult) {
@@ -131,7 +130,13 @@ function checkLogicSqrt() {
 // hàm check logic các dấu + - * / trong phép tính
 let lastString;
 function checkLogic1() {
-  if (lastString != "." && lastString != undefined && checkResult != true) {
+  lastString = calculation[calculation.length - 1];
+  if (
+    lastString != "√" &&
+    lastString != "." &&
+    lastString != undefined &&
+    checkResult != true
+  ) {
     return true;
   }
 }
@@ -189,15 +194,13 @@ function convertCalCulation() {
       `${arrayNoSqrt[i]}`
     );
   }
-  if(convertCalculations){
-  convertCalculations = convertCalculations
-    .replaceAll("×", "*")
-    .replaceAll("÷", "/");}
-    else{
-      convertCalculations = calculation
+  if (convertCalculations) {
+    convertCalculations = convertCalculations
       .replaceAll("×", "*")
       .replaceAll("÷", "/");
-    }
+  } else {
+    convertCalculations = calculation.replaceAll("×", "*").replaceAll("÷", "/");
+  }
   return convertCalculations;
 }
 let checkResult = false;
