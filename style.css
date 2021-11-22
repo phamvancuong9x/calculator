@@ -100,8 +100,6 @@ a {
   border: 1px solid #333;
   border-radius: 4px;
   background-color: aliceblue;
-  transition: 0.5 ease;
+  transition: 0.1s ease;
 }
-.keyboard__item:hover{
-  background-color: rgb(217, 220, 223);
-}
+
